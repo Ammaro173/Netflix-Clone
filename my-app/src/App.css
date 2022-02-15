@@ -1,3 +1,8 @@
+* {
+  font-family: serif;
+  background-color: hsla(160, 12%, 5%, 0);
+}
+
 .App {
   text-align: center;
 }
