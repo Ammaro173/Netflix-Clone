@@ -17,6 +17,7 @@ function Home() {
       console.log(err);
     }
   };
+
   const updateReview = (data, id) => {
     let updatedmovies = movies.map((ele) => {
       if (ele.id === id) {

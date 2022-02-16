@@ -1,9 +1,27 @@
 import { CardGroup, Card } from 'react-bootstrap';
 import NavBarss from '../Navbar/navbar';
+// import { useEffect, useState } from 'react';
 
 function FavList(props) {
   console.log(props);
   console.log(props.favouriteList);
+
+  // const fetchData = async () => {
+  //   try {
+  //     const response = await fetch(`${process.env.REACT_APP_SERVER}/trending`);
+  //     console.log('rs', response);
+  //     const data = await response.json();
+  //     console.log('dt', data);
+  //     setMovies(data);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
+
   return (
     <>
       <NavBarss />

@@ -36,7 +36,7 @@ function App() {
     <div className='body'>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/FavList' element={<FavList favouriteList={favouriteList} />} />
+        <Route path='FavList' element={<FavList favouriteList={favouriteList} />} />
         <Route path='*' component={PageNotFound} />
       </Routes>
     </div>
