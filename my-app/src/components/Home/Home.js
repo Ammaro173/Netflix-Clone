@@ -4,11 +4,11 @@ import MovieList from '../Movie/Movie';
 import { Container, Row } from 'react-bootstrap';
 
 function Home() {
-  const [movies, setMovies] = useState();
+  const [movies, setMovies] = useState([]);
 
   const fetchData = async () => {
     try {
-      const response = await fetch('https://movies0000.herokuapp.com/trending');
+      const response = await fetch(`${process.env.REACT_APP_SERVER}/trending`);
       console.log('rs', response);
       const data = await response.json();
       console.log('dt', data);
@@ -17,6 +17,17 @@ function Home() {
       console.log(err);
     }
   };
+  const updateReview = (data, id) => {
+    let updatedmovies = movies.map((ele) => {
+      if (ele.id === id) {
+        ele.review = data.userReview;
+        console.log(101010, data.userReview);
+        return ele;
+      } else return ele;
+    });
+    setMovies(updatedmovies);
+  };
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -28,7 +39,7 @@ function Home() {
         {
           <Container fluid className='main-container'>
             <Row className='flex-row'>
-              <MovieList movies={movies} />
+              <MovieList movies={movies} updateReview={updateReview} />
             </Row>
           </Container>
         }

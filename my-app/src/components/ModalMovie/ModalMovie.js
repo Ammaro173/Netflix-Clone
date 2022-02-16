@@ -10,13 +10,15 @@ function ModalMovie(props) {
   //   useEffect(() => {
   //     props.handleClose();
   //   }, []);
-  const commentRef = useRef();
-  function handleCaption(e) {
+  const reviewRef = useRef([]);
+  function handleReview(e) {
     e.preventDefault();
-    const userCaption = commentRef.current.value;
-    const newData = { ...props.now, userCaption };
-    props.updateCaption(newData, props.now.id);
-    console.log(1111111111, props.now);
+    console.log('this is e', e);
+    const userReview = reviewRef.current.value;
+    const newData = { ...props.now, userReview };
+    console.log('chk newData', newData);
+    props.updateReview(newData, props.now.id);
+    console.log('cap', props.now);
   }
 
   return (
@@ -36,9 +38,9 @@ function ModalMovie(props) {
         <Modal.Footer>
           <Form.Group>
             <Form.Label>Review:</Form.Label>
-            <Form.Control ref={commentRef} type='textarea' placeholder={props.now.caption ? props.now.caption : 'Add Your Review Here'} />
+            <Form.Control ref={reviewRef} type='textarea' placeholder={props.now.review ? props.now.review : 'Add Your Review Here'} />
           </Form.Group>
-          <Button className='addBtn' variant='primary' type='submit' onClick={handleCaption}>
+          <Button className='addBtn' variant='primary' type='submit' onClick={handleReview}>
             Add a Review
           </Button>
           <Button variant='secondary' onClick={props.handleClose}>
@@ -51,6 +53,7 @@ function ModalMovie(props) {
   );
 }
 export default ModalMovie;
+
 // {`https://image.tmdb.org/t/p/w500/${props.movie.poster_path}`}
 //
 //
